@@ -1,3 +1,4 @@
 /mongo-data/
 /mongodb/
 /Back/node_modules/
+runMondoDbScript.sh
