@@ -1,0 +1,20 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node server.js",
+    "start-watch":"./node_modules/nodemon/bin/nodemon.js server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shai Lehmann",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
