@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Person} from '../person'
-import {PersonService} from '../person.service'
+import { Person } from '../person'
+import { PersonService } from '../person.service'
+import {PersonEditPersonComponent} from '../person-edit-person/person-edit-person.component'
 
 @Component({
   selector: 'app-persons-list',
@@ -12,13 +13,25 @@ export class PersonsListComponent implements OnInit {
   constructor(private personService: PersonService) { }
 
   ngOnInit() {
-    this.getHeroes();
+    this.getPersons();
   }
 
-  getHeroes(): void {
-  this.personService.getHeroes()
-      .subscribe((heroes) => {this.persons = heroes
-      console.log(heroes)});
-      console.log(this.persons);
-}
+  getPersons(): void {
+    this.personService.getPersons()
+      .subscribe((persons) => { this.persons = persons
+      console.log(typeof persons[0]._id);});
+
+  }
+
+  onDelete(id:string): void {
+    this.personService.deletePerson(id)
+    .subscribe((persons) => { console.log(id) });
+    this.getPersons();
+  }
+
+  toEditPerson:Person;
+  toEdit(person:Person):void{
+    toEditPerson = person;
+  }
+
 }

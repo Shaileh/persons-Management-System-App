@@ -1,0 +1,24 @@
+<p>
+  person-edit-person works!
+</p>
+<div *ngIf="personToEdit">
+  <form #personForm="ngForm" (ngSubmit)="createNewPerson(personForm)">
+
+    <label>name:
+      <input name="name" [(ngModel)]="name" placeholder="name" required />
+    </label><br><br>
+    <label>email:
+      <input type="email" name="email" [(ngModel)]="email" required />
+    </label><br><br>
+    <label>gender:
+      <input type="radio" name="gender" [(ngModel)]="gender" value="Male" checked> Male
+      <input type="radio" name="gender" [(ngModel)]="gender " value="Female"> Female<br>
+    </label><br><br>
+    <label>phone number:
+      <input name="phoneNum" [(ngModel)]="phoneNum" />
+    </label><br><br>
+
+    <button type="submit" [disabled]="!personForm.valid">Create</button>
+
+  </form>
+</div>
