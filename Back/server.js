@@ -8,7 +8,12 @@ const bodyParser = require('body-parser');
 var app = express()
 
 app.use(bodyParser.json()); // for parsing application/json
-
+app.use(function(req, res, next) {
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+ });
+ 
 app.post('/persons',(req,res) => {
   var person = new Person(req.body);
 
@@ -21,7 +26,7 @@ app.post('/persons',(req,res) => {
 
 app.get('/persons',(req, res) => {
   Person.find({}).then((docs) => {
-    res.send({counter:docs.length,docs});
+    res.send(docs);
   }).catch((e) => {res.status(404).send(e);});
 });
 
