@@ -2,6 +2,7 @@ import { Component, OnInit ,Input} from '@angular/core';
 import {NgForm} from '@angular/forms'
 import {Person} from '../person'
 import {PersonService} from '../person.service'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-person-new-person',
@@ -11,7 +12,7 @@ import {PersonService} from '../person.service'
 export class PersonNewPersonComponent implements OnInit {
 
 
-  constructor(private personService: PersonService) { }
+  constructor(private personService: PersonService,private location: Location) { }
 
   ngOnInit() {
   }
@@ -23,5 +24,7 @@ export class PersonNewPersonComponent implements OnInit {
       console.log(`addPerson ${value}`);
     })
   }
-
+  goBack():void {
+  this.location.back();
+}
 }

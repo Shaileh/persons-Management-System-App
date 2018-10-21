@@ -8,13 +8,15 @@ import { PersonsListComponent } from './persons-list/persons-list.component';
 import { PersonNewPersonComponent } from './person-new-person/person-new-person.component';
 import { PersonEditPersonComponent } from './person-edit-person/person-edit-person.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ViewPersonComponent } from './view-person/view-person.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonsListComponent,
     PersonNewPersonComponent,
-    PersonEditPersonComponent
+    PersonEditPersonComponent,
+    ViewPersonComponent
   ],
   imports: [
     BrowserModule,

@@ -36,5 +36,8 @@ export class PersonService {
   deletePerson(id:string): Observable<Person> {
     return this.http.delete<Person>(`${httpURL}/${id}`,httpOptions);
   }
-
+  editPerson(id:string ,person:Person): Observable<Person> {
+    console.log(id);
+    return this.http.patch<Person>(`${httpURL}/${id}`,person,httpOptions);
+  }
 }

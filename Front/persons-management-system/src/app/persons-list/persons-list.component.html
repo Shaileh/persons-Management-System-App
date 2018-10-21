@@ -1,9 +1,9 @@
 <h2>Persons</h2>
+<a routerLink="/newPerson">Add Person</a>
 <ul class="persons">
   <li *ngFor="let person of persons">
-     <!-- <a routerLink="/detail/{{person.id}}"> -->
     <span class="badge"></span> {{person.name}}
-    <a (click)="onDelete(person._id)">Delete</a> <&> <a (click)="toEdit(person)" >edit</a>
-  <!-- </a> -->
+    <a (click)="onDelete(person._id)">Delete</a> <&> <a routerLink="/editPerson/{{person._id}}">edit</a>
+    <&> <a routerLink="/viewPerson/{{person._id}}">view</a>
   </li>
 </ul>

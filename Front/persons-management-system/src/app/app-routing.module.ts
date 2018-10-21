@@ -4,13 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {PersonsListComponent} from './persons-list/persons-list.component'
 import {PersonNewPersonComponent} from './person-new-person/person-new-person.component'
 import {PersonEditPersonComponent} from './person-edit-person/person-edit-person.component'
-
+import {ViewPersonComponent} from './view-person/view-person.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/list', pathMatch: 'full' },
   { path: 'newPerson', component: PersonNewPersonComponent },
   { path: 'list' , component: PersonsListComponent},
-  { path: 'editPerson/:id', component: PersonEditPersonComponent }
+  { path: 'editPerson/:id', component: PersonEditPersonComponent },
+  { path: 'viewPerson/:id', component: ViewPersonComponent }
 ];
 
 @NgModule({
