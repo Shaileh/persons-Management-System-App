@@ -6,14 +6,15 @@ const express = require('express')
 const bodyParser = require('body-parser');
 
 var app = express()
-
+// "GET, POST, OPTIONS, PUT, DELETE"
 app.use(bodyParser.json()); // for parsing application/json
 app.use(function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
-   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+   res.header("Access-Control-Allow-Headers", "*");
+   res.header("Access-Control-Allow-Methods", "*");
   next();
  });
- 
+
 app.post('/persons',(req,res) => {
   var person = new Person(req.body);
 
@@ -47,8 +48,13 @@ app.delete('/persons/:id',(req, res) => {
    if(!ObjectId.isValid(id)){
      return res.status(404).send({error: "inValid ID"});
    }
-   Person.findByIdAndDelete(id).then((doc) => {
+   Person.findOneAndDelete({_id:id}).then((doc) => {
+     if(doc){
      res.send(doc);
+   }
+   else {
+     res.status(404).send();
+   }
    }).catch((e) => {res.status(404).send(e);})
 });
 
